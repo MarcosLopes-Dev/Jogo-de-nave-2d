@@ -14,6 +14,8 @@ function start(){
         DOWN: 40,
         D: 68
     }
+    var velocidade = 5;
+    var posicaoY = parseInt(Math.random() * 334);
 
     jogo.pressionou = [];
 
@@ -28,7 +30,11 @@ function start(){
     function loop()
     {
         moveFundo();
+        moveInimigo();
+        moveInimigo2();
         moveJogador();
+        moveAmigo();
+       
     }
 
     function moveFundo() {
@@ -37,17 +43,58 @@ function start(){
         $("#fundoGame").css("background-position",esquerda-1);
     }
 
+    function moveInimigo(){
+        posicaoX = parseInt($("#inimigo1").css("left"));
+        $("#inimigo1").css("left",posicaoX-velocidade);
+        $("#inimigo1").css("top",posicaoY);
+            
+            if(posicaoX<=0) {
+                posicaoY = parseInt(Math.random() * 334);
+                $("#inimigo1").css("left", 694);
+                $("#inimigo1").css("top",posicaoY);
+            }
+
+    }
+
+    function moveInimigo2(){
+        posicaoX = parseInt($("#inimigo2").css("left"));
+        $("#inimigo2").css("left",posicaoX-3);
+            
+            if(posicaoX<=0) {
+                $("#inimigo2").css("left", 775);
+            }
+
+    }
+
+    function moveAmigo(){
+        posicaoX = parseInt($("#amigo").css("left"));
+        $("#amigo").css("left",posicaoX+1);
+            
+            if(posicaoX>906) {
+                $("#amigo").css("left", 0);
+            }
+
+    }
+
     function moveJogador(){
 
         if(jogo.pressionou[TECLA.UP]){
            
             var topo = parseInt($("#jogador").css("top"));
             $("#jogador").css("top",topo-10);
+
+                if(topo<=0){
+                $("#jogador").css("top",topo+10)
+                }
         }
         if(jogo.pressionou[TECLA.DOWN]){
            
             var topo = parseInt($("#jogador").css("top"));
             $("#jogador").css("top",topo+10);
+
+            if(topo>=434){
+                $("#jogador").css("top",topo-10)
+                }
         }
         if(jogo.pressionou[TECLA.D]){
             //disparo();
