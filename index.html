@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
-    <title>As aventuras de uma guia de outro mundo</title>
+    <title>Resgate</title>
 </head>
-<body onload="alert('Utilize as teclas (W) e (S) para subir e descer.')">
+<body onload="alert('Seja bem vindo e divirta-se.')">
     <div id="container">
         <div id="fundoGame">
-            <div id="inicio" onclick="start()"> <h1>A Guia</h1><p>clique para iniciar</p></div>
+            <div id="inicio" onclick="start()"> <h1>Resgate</h1><p>clique para iniciar</p></div>
     
         </div>
     </div>
 
+    <audio src="sons/som.mp3" preload="auto" id="somDisparo"></audio>
+    <audio src="sons/explosao.mp3" preload="auto" id="somExplosao"></audio>
+    <audio src="sons/musica_fundo.mp3" preload="auto" id="musica"></audio>
+    <audio src="sons/gameover.mp3" preload="auto" id="somGameover"></audio>
+    <audio src="sons/perdido.mp3" preload="auto" id="somPerdido"></audio>	
+    <audio src="sons/resgate.mp3" preload="auto" id="somResgate"></audio>
+    
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
+    <script type="text/javascript" src="js/jquery-collision.min.js"></script>
+    
  
 </body>
 </html>
